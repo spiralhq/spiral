@@ -1,0 +1,26 @@
+{
+  "Common": {
+    "ThemeSwitch": {
+      "sr-only": "Switch theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "LocaleSelector": {
+      "sr-only": "Select language"
+    }
+  },
+  "Landing": {
+    "Navbar": {
+      "home": "Home",
+      "docs": "Docs",
+      "githubStar": "Star us on GitHub"
+    },
+    "HeroSection": {
+      "title": "PRESERVE\nHUMAN MEMORY",
+      "subtitle": "A decentralized protocol for registering, governing, and preserving audiovisual works — forever, on-chain.",
+      "ctaDisabled": "Coming Soon",
+      "kicker": "No more lost media"
+    }
+  }
+}

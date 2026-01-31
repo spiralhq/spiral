@@ -1,0 +1,26 @@
+{
+  "Common": {
+    "ThemeSwitch": {
+      "sr-only": "Alternar tema",
+      "light": "Claro",
+      "dark": "Escuro",
+      "system": "Sistema"
+    },
+    "LocaleSelector": {
+      "sr-only": "Selecionar idioma"
+    }
+  },
+  "Landing": {
+    "Navbar": {
+      "home": "Início",
+      "docs": "Docs",
+      "githubStar": "Nos apoie no GitHub"
+    },
+    "HeroSection": {
+      "title": "PRESERVE\nNOSSA MEMÓRIA",
+      "subtitle": "Um protocolo descentralizado para registrar, governar e preservar o patrimônio audiovisual — para sempre, on-chain.",
+      "ctaDisabled": "Em breve",
+      "kicker": "Contra a perda da memória digital"
+    }
+  }
+}
