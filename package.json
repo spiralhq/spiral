@@ -1,0 +1,40 @@
+{
+  "name": "spiral",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:native": "turbo -F native dev",
+    "dev:web": "turbo -F web dev",
+    "dev:server": "turbo -F server dev",
+    "db:push": "turbo -F @spiral/db db:push",
+    "db:studio": "turbo -F @spiral/db db:studio",
+    "db:generate": "turbo -F @spiral/db db:generate",
+    "db:migrate": "turbo -F @spiral/db db:migrate",
+    "db:start": "turbo -F @spiral/db db:start",
+    "db:watch": "turbo -F @spiral/db db:watch",
+    "db:stop": "turbo -F @spiral/db db:stop",
+    "db:down": "turbo -F @spiral/db db:down",
+    "check": "oxlint && oxfmt --write"
+  },
+  "dependencies": {
+    "@spiral/env": "*",
+    "dotenv": "^17.2.2",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@spiral/config": "*",
+    "@types/node": "^22.13.14",
+    "oxfmt": "^0.26.0",
+    "oxlint": "^1.41.0",
+    "turbo": "^2.6.3",
+    "typescript": "^5"
+  },
+  "packageManager": "npm@11.6.1"
+}

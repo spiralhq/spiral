@@ -1,0 +1,24 @@
+{
+  "name": "@spiral/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@spiral/db": "*",
+    "@spiral/env": "*",
+    "better-auth": "^1.4.9",
+    "dotenv": "^17.2.2",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@spiral/config": "*",
+    "typescript": "^5"
+  }
+}
