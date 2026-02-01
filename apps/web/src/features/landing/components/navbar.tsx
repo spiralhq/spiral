@@ -13,10 +13,11 @@ import { Separator } from "@/components/ui/separator";
 import { Logo } from "@/assets/logo";
 import { LocaleSelector } from "./locale-selector";
 import { useTranslations } from "next-intl";
+import { env } from "@spiral/env/web";
 
 const SCROLL_OFFSET = 100;
-const DOCS_URL = process.env.NEXT_PUBLIC_DOCS_URL;
-const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/spiralhq/spiral";
+const DOCS_URL = env.NEXT_PUBLIC_DOCS_URL;
+const GITHUB_URL = env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/spiralhq/spiral";
 
 type NavItem =
   | { label: string; type: "scroll"; id: string }
