@@ -1,3 +1,41 @@
 @import "tailwindcss";
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
+
+@theme {
+  --color-fd-background: hsl(45 53.3333% 94.1176%);
+  --color-fd-foreground: hsl(24 9.8039% 10%);
+  --color-fd-card: hsl(48 71.4286% 97.2549%);
+  --color-fd-card-foreground: hsl(24 9.8039% 10%);
+  --color-fd-popover: hsl(48 71.4286% 97.2549%);
+  --color-fd-popover-foreground: hsl(24 9.8039% 10%);
+  --color-fd-muted: hsl(220 14.2857% 95.8824%);
+  --color-fd-muted-foreground: hsl(220 8.9362% 46.0784%);
+  --color-fd-primary: hsl(16.4929 97.235% 57.451%);
+  --color-fd-primary-foreground: hsl(0 0% 100%);
+  --color-fd-secondary: hsl(220 13.0435% 90.9804%);
+  --color-fd-secondary-foreground: hsl(24 9.8039% 10%);
+  --color-fd-accent: hsl(19.3548 88.5714% 93.1373%);
+  --color-fd-accent-foreground: hsl(24 9.8039% 10%);
+  --color-fd-border: hsl(220 13.0435% 90.9804%);
+  --color-fd-ring: hsl(16.4929 97.235% 57.451%);
+}
+
+.dark {
+  --color-fd-background: hsl(24 9.8039% 10%);
+  --color-fd-foreground: hsl(45 53.3333% 94.1176%);
+  --color-fd-card: hsl(24 7.0423% 13.9216%);
+  --color-fd-card-foreground: hsl(45 53.3333% 94.1176%);
+  --color-fd-popover: hsl(24 7.0423% 13.9216%);
+  --color-fd-popover-foreground: hsl(45 53.3333% 94.1176%);
+  --color-fd-muted: hsl(24 5.7471% 17.0588%);
+  --color-fd-muted-foreground: hsl(24 5.4348% 63.9216%);
+  --color-fd-primary: hsl(16.4929 97.235% 57.451%);
+  --color-fd-primary-foreground: hsl(0 0% 100%);
+  --color-fd-secondary: hsl(20 5.7692% 20.3922%);
+  --color-fd-secondary-foreground: hsl(45 53.3333% 94.1176%);
+  --color-fd-accent: hsl(16.8 20.3252% 24.1176%);
+  --color-fd-accent-foreground: hsl(45 53.3333% 94.1176%);
+  --color-fd-border: hsl(20 5.7692% 20.3922%);
+  --color-fd-ring: hsl(16.4929 97.235% 57.451%);
+}

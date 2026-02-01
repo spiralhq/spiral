@@ -1,0 +1,158 @@
+---
+title: Authentication & Identity
+description: Hybrid authentication and onboarding using wallet signatures and session-based access.
+icon: ShieldCheck
+---
+
+import { DynamicLink } from "fumadocs-core/dynamic-link";
+
+## Overview
+
+Spiral uses a **hybrid authentication model** designed to bridge two worlds:
+
+- **Decentralized identity** (wallets + blockchain)
+- **Traditional web experience** (sessions, cookies, JWT)
+
+The Solana blockchain acts as the **source of truth**, while the backend provides performance, ergonomics, and fine-grained access control.
+
+<Callout type="info" title="Core Principle">
+  The backend **never grants permissions on its own**. All identities and organizational memberships
+  must exist **on-chain**.
+</Callout>
+
+---
+
+## Involved Components
+
+<Cards>
+  <Card icon={<Wallet />} title="User Wallet">
+    Identity proof via cryptographic signatures (SIWS).
+  </Card>
+
+<Card icon={<Terminal />} title="API Backend">
+  Invitation validation, on-chain verification, and session issuance.
+</Card>
+
+<Card icon={<Cpu />} title="Solana Blockchain">
+  Source of truth for identity, membership, and permissions.
+</Card>
+
+  <Card icon={<Database />} title="PostgreSQL">
+    Read-optimized projection layer for on-chain state.
+  </Card>
+</Cards>
+
+---
+
+## Authentication Flow
+
+The complete authentication and onboarding flow is defined by the diagram below:
+
+![Hybrid Authentication Flow](/images/en/auth-diagram.png)
+
+<Callout title="Reading the Diagram">
+  This flow illustrates how **on-chain confirmation** and **off-chain control** cooperate without
+  compromising blockchain sovereignty.
+</Callout>
+
+---
+
+## Step-by-Step Flow
+
+<Accordions>
+  <Accordion id="invite" title="1. Invitation-Based Onboarding">
+    Access begins with a **signed invitation link**, issued by an Organization.
+
+    The invitation defines:
+    - Target organization
+    - Initial role
+    - Expiration and nonce
+
+    This prevents self-registration and unauthorized access.
+
+  </Accordion>
+
+  <Accordion id="wallet" title="2. Wallet Connection & Signature (SIWS)">
+    The user connects a Solana wallet (e.g. Phantom) and signs a message containing a nonce.
+
+    This signature proves **ownership of the private key**, without ever exposing it.
+
+  </Accordion>
+
+  <Accordion id="backend" title="3. Backend Validation">
+    The backend validates:
+    - Cryptographic signature
+    - Invitation integrity
+    - Wallet address consistency
+
+    No permissions are assumed at this stage.
+
+  </Accordion>
+
+  <Accordion id="pda-check" title="4. On-Chain Membership Verification">
+    The backend checks whether a deterministic **MemberAccount PDA** exists on-chain for the wallet and organization.
+
+    - If it exists → the user is already a confirmed member
+    - If it does not → explicit registration is required
+
+  </Accordion>
+
+  <Accordion id="admin" title="5. Admin-Gated On-Chain Registration">
+    If the member does not exist, an **Organization Admin** executes the `add_member` transaction.
+
+    This creates the MemberAccount PDA in a way that is:
+    - Deterministic
+    - Auditable
+    - Immutable
+
+  </Accordion>
+
+  <Accordion id="db" title="6. Database Projection">
+    Once the transaction is confirmed:
+    - The backend creates or updates the user record
+    - Organization membership is persisted
+    - The role is mirrored in PostgreSQL
+
+    The database acts only as a **read model**, never as a source of truth.
+
+  </Accordion>
+
+  <Accordion id="session" title="7. Session Issuance (JWT)">
+    After on-chain confirmation:
+    - A JWT session cookie is issued
+    - The token contains user ID, organization ID, and role
+
+    Subsequent requests **do not require additional wallet signatures**.
+
+  </Accordion>
+</Accordions>
+
+---
+
+## Security Guarantees
+
+<Cards>
+  <Card title="Verifiable Identity" icon={<ShieldCheck />}>
+    No user can authenticate without proving wallet ownership.
+  </Card>
+
+<Card title="Auditable Authorization" icon={<FileCheck />}>
+  Organizational memberships are recorded on-chain.
+</Card>
+
+  <Card title="No Silent Privilege Escalation" icon={<Lock />}>
+    The backend cannot grant access independently.
+  </Card>
+</Cards>
+
+---
+
+## Why Hybrid Authentication?
+
+<Callout type="info" title="Architectural Trade-off">
+  Pure on-chain authentication is secure but impractical at scale.  
+  Pure Web2 authentication is fast but fragile.
+
+Spiral explicitly combines both approaches in a verifiable and scalable way.
+
+</Callout>

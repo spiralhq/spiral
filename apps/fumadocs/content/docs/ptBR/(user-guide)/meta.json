@@ -1,0 +1,7 @@
+{
+  "title": "Guia do Usuário",
+  "description": "Documentação para uso do sistema e orientação aos usuários.",
+  "icon": "BookOpen",
+  "root": true,
+  "pages": ["---Introdução---", "index", "vision"]
+}

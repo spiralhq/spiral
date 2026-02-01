@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { CheckIcon, Globe, ChevronDown } from "lucide-react";
+import { CheckIcon, Languages, ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
@@ -49,7 +49,7 @@ export function LocaleSelector({ isMobile = false }: LocaleSelectorProps) {
         render={
           <Button variant="outline" size={isMobile ? "default" : "icon"} disabled={pending}>
             <div className="flex items-center gap-2">
-              <Globe className="h-[1.2rem] w-[1.2rem]" />
+              <Languages className="h-[1.2rem] w-[1.2rem]" />
               {isMobile && <span>{currentLabel}</span>}
             </div>
             {isMobile && <ChevronDown className="h-4 w-4 opacity-50" />}

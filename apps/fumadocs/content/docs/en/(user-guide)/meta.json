@@ -1,0 +1,7 @@
+{
+  "title": "User Guide",
+  "description": "Documentation for system usage and user guidance.",
+  "icon": "BookOpen",
+  "root": true,
+  "pages": ["---Introduction---", "index", "vision"]
+}

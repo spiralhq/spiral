@@ -1,0 +1,112 @@
+---
+title: Início Rápido
+description: Começando com a plataforma Spiral
+icon: Rocket
+---
+
+import { DynamicLink } from "fumadocs-core/dynamic-link";
+
+## Introdução
+
+A **Spiral** é uma plataforma descentralizada projetada para a **preservação, catalogação e verificação** de acervos audiovisuais. Nosso objetivo é impedir que produções independentes, regionais e históricas se percam devido a falhas físicas ou centralização burocrática.
+
+A plataforma é composta por quatro pilares fundamentais:
+
+<Cards>
+  <DynamicLink href="#" passHref className="no-underline text-inherit block">
+    <Card icon={<DatabaseIcon className="text-blue-300" />} title='Preservação P2P'>
+      Utilizamos o protocolo IPFS para garantir que seus arquivos sejam replicados em múltiplos nós, eliminando pontos únicos de falha.
+    </Card>
+  </DynamicLink>
+
+<DynamicLink href="#" passHref className="no-underline text-inherit block">
+  <Card icon={<ShieldCheck className="text-green-300" />} title="Verificação em Blockchain">
+    Cada obra recebe um registro imutável na rede Solana, permitindo provar a autenticidade e
+    integridade do arquivo original.
+  </Card>
+</DynamicLink>
+
+<Card icon={<Search className="text-purple-300" />} title="Catálogo de Metadados">
+  Um banco de dados otimizado para pesquisa de diretores, elencos e informações técnicas de obras
+  preservadas.
+</Card>
+
+  <DynamicLink href="#" passHref className="no-underline text-inherit block">
+    <Card icon={<Users className="text-orange-300" />} title='Governança (DAO)'>
+      Uma organização descentralizada que decide sobre a curadoria de obras órfãs e o tesouro da rede.
+    </Card>
+  </DynamicLink>
+</Cards>
+
+<Callout title="O que é a Spiral?">
+  Se você quer entender a fundo o problema que estamos resolvendo, leia nossa{" "}
+  <DynamicLink href="/[lang]/docs/vision">Visão Geral</DynamicLink>.
+</Callout>
+
+---
+
+### Terminologia Básica
+
+Para navegar na Spiral, é importante conhecer alguns conceitos:
+
+**IPFS:** Um sistema de arquivos distribuído onde o conteúdo é acessado pelo "o que" (hash) e não pelo "onde" (servidor).
+
+**Hash do Arquivo:** Uma "impressão digital" única do seu vídeo. Se um único pixel mudar, o hash muda.
+
+**Solana:** A rede de blockchain de alto desempenho onde registramos as certidões de nascimento (NFTs) das obras.
+
+**Metadata:** Informações sobre o filme (Título, Diretor, Ano) que ajudam na catalogação.
+
+---
+
+## Fluxo Principal de Uso
+
+A Spiral foi desenhada para ser intuitiva, mesmo lidando com tecnologias complexas sob o capô.
+
+1.  **Conexão de Carteira:** Acesse o sistema usando sua carteira digital (ex: Phantom).
+2.  **Upload e Registro:** Envie sua obra. O sistema gera o hash, faz o upload para o IPFS e registra o NFT de preservação.
+3.  **Gestão de Armazenamento:** Contrate provedores de armazenamento usando a **SpiralCoin** para garantir a persistência a longo prazo.
+4.  **Consulta:** Pesquisadores e o público podem localizar a obra e verificar se o arquivo baixado é o original.
+
+<Callout type="warn" title="Importante">
+  A Spiral foca em obras legalmente disponibilizáveis ou em domínio público. Certifique-se de
+  possuir os direitos de preservação antes do upload.
+</Callout>
+
+## Perguntas Frequentes (FAQ)
+
+Algumas dúvidas comuns de novos usuários.
+
+<Accordions>
+  <Accordion id='seguranca-blockchain' title="Meus filmes ficam salvos 'dentro' da Blockchain?">
+    Não. A blockchain armazena apenas o **Hash (ID)** e os metadados. O arquivo de vídeo propriamente dito (que é pesado) fica distribuído na rede IPFS. Isso mantém o sistema rápido e barato.
+  </Accordion>
+
+<Accordion id="direitos-autorais" title="Como funciona o controle de acesso?">
+  A Spiral utiliza um mecanismo híbrido. O registro é público para verificação, mas o acesso ao
+  download pode ser restrito conforme o status jurídico da obra definido pela Organização
+  responsável.
+</Accordion>
+
+  <Accordion id='perda-arquivo' title="E se eu perder meu arquivo local?">
+    Como a obra está no IPFS e possivelmente sob um contrato de preservação, ela poderá ser recuperada através da rede de nós que a replicaram.
+  </Accordion>
+</Accordions>
+
+### Próximos Passos
+
+Pronto para começar? Escolha seu perfil:
+
+<Cards>
+  <DynamicLink href="#" passHref className="no-underline text-inherit block">
+    <Card title="Sou um Preservador">
+      Aprenda a cadastrar sua organização e iniciar o upload de acervos.
+    </Card>
+  </DynamicLink>
+
+  <DynamicLink href="#" passHref className="no-underline text-inherit block">
+    <Card title="Sou um Pesquisador">
+      Saiba como buscar obras e verificar a integridade de arquivos baixados.
+    </Card>
+  </DynamicLink>
+</Cards>

@@ -42,6 +42,7 @@ export function LLMCopyButton({
 
   return (
     <button
+      type="button"
       disabled={isLoading}
       className={cn(
         buttonVariants({
@@ -218,11 +219,11 @@ export function ViewOptions({
             href={item.href}
             rel="noreferrer noopener"
             target="_blank"
-            className="text-sm p-2 rounded-lg inline-flex items-center gap-2 hover:text-fd-accent-foreground hover:bg-fd-accent [&_svg]:size-4"
+            className="inline-flex items-center gap-2 rounded-lg p-2 text-sm hover:bg-fd-accent hover:text-fd-accent-foreground [&_svg]:size-4"
           >
             {item.icon}
             {item.title}
-            <ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto" />
+            <ExternalLinkIcon className="ms-auto size-3.5 text-fd-muted-foreground" />
           </a>
         ))}
       </PopoverContent>

@@ -1,0 +1,111 @@
+---
+title: Quick Start
+description: Getting started with the Spiral platform
+icon: Rocket
+---
+
+import { DynamicLink } from "fumadocs-core/dynamic-link";
+
+## Introduction
+
+**Spiral** is a decentralized platform designed for the **preservation, cataloging, and verification** of audiovisual archives. Our mission is to prevent independent, regional, and historical productions from being lost due to physical decay or bureaucratic centralization.
+
+The platform is built upon four fundamental pillars:
+
+<Cards>
+  <DynamicLink href="#" passHref className="no-underline text-inherit block">
+    <Card icon={<DatabaseIcon className="text-blue-300" />} title='P2P Preservation'>
+      We use the IPFS protocol to ensure your files are replicated across multiple nodes, eliminating single points of failure.
+    </Card>
+  </DynamicLink>
+
+<DynamicLink href="#" passHref className="no-underline text-inherit block">
+  <Card icon={<ShieldCheck className="text-green-300" />} title="Blockchain Verification">
+    Each work receives an immutable record on the Solana network, providing proof of authenticity
+    and integrity of the original file.
+  </Card>
+</DynamicLink>
+
+<Card icon={<Search className="text-purple-300" />} title="Metadata Catalog">
+  A database optimized for searching directors, casts, and technical information of preserved works.
+</Card>
+
+  <DynamicLink href="#" passHref className="no-underline text-inherit block">
+    <Card icon={<Users className="text-orange-300" />} title='Governance (DAO)'>
+      A decentralized organization that decides on the curation of orphan works and the management of the network treasury.
+    </Card>
+  </DynamicLink>
+</Cards>
+
+<Callout title="What is Spiral?">
+  If you want to understand the core problem we are solving in depth, read our{" "}
+  <DynamicLink href="/[lang]/docs/vision">Vision Overview</DynamicLink>.
+</Callout>
+
+---
+
+### Basic Terminology
+
+To navigate Spiral effectively, it is important to understand a few key concepts:
+
+**IPFS:** A distributed file system where content is accessed by "what" it is (hash) rather than "where" it is (server).
+
+**File Hash:** A unique "digital fingerprint" of your video. If a single pixel changes, the hash changes completely.
+
+**Solana:** The high-performance blockchain network where we register the "birth certificates" (NFTs) of the preserved works.
+
+**Metadata:** Information about the film (Title, Director, Year) that facilitates cataloging and searchability.
+
+---
+
+## Core Workflow
+
+Spiral is designed to be intuitive, even while managing complex technologies under the hood.
+
+1.  **Wallet Connection:** Access the system using your digital wallet (e.g., Phantom).
+2.  **Upload and Registration:** Upload your work. The system generates the hash, pushes the file to IPFS, and registers the preservation NFT.
+3.  **Storage Management:** Contract storage providers using **SpiralCoin** to ensure long-term data persistence.
+4.  **Inquiry:** Researchers and the public can locate the work and verify if the downloaded file matches the original.
+
+<Callout type="warn" title="Important">
+  Spiral focuses on legally available works or those in the public domain. Ensure you have the
+  preservation rights before uploading.
+</Callout>
+
+## FAQ
+
+Common questions from new users.
+
+<Accordions>
+  <Accordion id='blockchain-security' title="Are my films stored 'inside' the Blockchain?">
+    No. The blockchain only stores the **Hash (ID)** and the metadata. The video file itself—which is heavy—is distributed across the IPFS network. This keeps the system fast and cost-effective.
+  </Accordion>
+
+<Accordion id="copyright-control" title="How does access control work?">
+  Spiral uses a hybrid mechanism. The registration is public for verification purposes, but file
+  downloads can be restricted based on the legal status of the work as defined by the responsible
+  Organization.
+</Accordion>
+
+  <Accordion id='file-loss' title="What if I lose my local file?">
+    Since the work is on IPFS and likely under a preservation contract, it can be recovered through the network of nodes that have replicated it.
+  </Accordion>
+</Accordions>
+
+### Next Steps
+
+Ready to get started? Choose your profile:
+
+<Cards>
+  <DynamicLink href="#" passHref className="no-underline text-inherit block">
+    <Card title="I am a Preservator">
+      Learn how to register your organization and begin uploading archives.
+    </Card>
+  </DynamicLink>
+
+  <DynamicLink href="#" passHref className="no-underline text-inherit block">
+    <Card title="I am a Researcher">
+      Learn how to search for works and verify the integrity of downloaded files.
+    </Card>
+  </DynamicLink>
+</Cards>

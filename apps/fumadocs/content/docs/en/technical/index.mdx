@@ -1,0 +1,114 @@
+---
+title: System Architecture
+description: A technical overview of Spiral’s hybrid on-chain and off-chain architecture.
+icon: Cpu
+---
+
+import { DynamicLink } from "fumadocs-core/dynamic-link";
+
+## Architectural Overview
+
+Spiral is built on a **hybrid architecture** that deliberately separates **source of truth**, **performance**, and **user experience**.
+
+The system combines:
+
+- **On-chain programs** for identity, ownership, and integrity guarantees
+- **Off-chain infrastructure** for performance, searchability, and UX
+- **Cryptographic bridges** to keep both layers consistent
+
+This approach avoids overloading the blockchain while preserving strong security guarantees.
+
+---
+
+## Core Stack
+
+<Cards>
+  <DynamicLink href="/[lang]/docs/technical/on-chain" passHref className="no-underline text-inherit block">
+    <Card icon={<CpuIcon className="text-purple-300" />} title='Solana (Anchor)'>
+      Rust-based programs responsible for Organizations, Film registration (Token-2022 NFTs), and Preservation contracts.
+    </Card>
+  </DynamicLink>
+
+<DynamicLink
+  href="/[lang]/docs/technical/authentication"
+  passHref
+  className="no-underline text-inherit block"
+>
+  <Card icon={<ShieldCheck className="text-blue-300" />} title="Authentication & Identity">
+    Hybrid authentication model combining wallet signatures (SIWS) and JWT-based sessions.
+  </Card>
+</DynamicLink>
+
+<Card icon={<Terminal className="text-indigo-300" />} title="API Backend">
+  Edge-first backend responsible for validation, indexing, authorization, and orchestration of
+  on-chain actions.
+</Card>
+
+  <Card icon={<Database className="text-green-300" />} title='PostgreSQL (Metadata Layer)'>
+    Read-optimized database used for metadata search, access control, and mirroring on-chain state.
+  </Card>
+</Cards>
+
+---
+
+## The Hybrid Trust Model
+
+Spiral follows a **dual-layer trust model**:
+
+| Layer               | Responsibility                                | Trust Level          |
+| ------------------- | --------------------------------------------- | -------------------- |
+| Blockchain (Solana) | Identity, ownership, integrity, authorization | Source of truth      |
+| Backend + Database  | Search, UX, permissions, caching              | Derived / verifiable |
+
+The backend **never invents state**.  
+All critical permissions are validated against **on-chain PDAs**.
+
+---
+
+## Why Not Query the Blockchain on Every Request?
+
+Querying the blockchain for every user interaction would:
+
+- Increase latency
+- Increase RPC costs
+- Harm user experience
+
+Instead, Spiral uses **PostgreSQL as a projection layer**:
+
+- On-chain events are indexed
+- PDAs are mirrored
+- Queries become fast and expressive
+
+On-chain data can always be **re-verified cryptographically**.
+
+---
+
+## Deterministic Identity (PDAs)
+
+All identities in Spiral are derived deterministically using Program Derived Addresses.
+
+Example — Member PDA derivation:
+
+$$
+PDA_{member} = \text{hash}("member" + Organization\_Key + Wallet\_PublicKey)
+$$
+
+This guarantees:
+
+- No forged identities
+- No duplicate members
+- Deterministic verification without storage overhead
+
+---
+
+## Technical Deep Dives
+
+Continue reading to explore each subsystem in detail:
+
+- **Authentication & Identity** → Wallet-based login, onboarding via invite, session model
+- **On-Chain Programs** → Organization, Film, Preservation architecture
+- **Synchronization Layer** → How blockchain events update the database
+
+<Callout title="Monorepo Architecture">
+  Spiral uses a monorepo structure. Backend and frontend are isolated but share types and schemas.
+</Callout>

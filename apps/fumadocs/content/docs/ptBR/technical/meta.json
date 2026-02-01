@@ -1,0 +1,7 @@
+{
+  "title": "Aspectos Técnicos",
+  "description": "Guia completo para desenvolvedores.",
+  "icon": "Cpu",
+  "root": true,
+  "pages": ["---Introdução---", "index", "authentication"]
+}
