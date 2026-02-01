@@ -12,7 +12,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Separator } from "@/components/ui/separator";
 import { Logo } from "@/assets/logo";
 import { LocaleSelector } from "./locale-selector";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { env } from "@spiral/env/web";
 
 const SCROLL_OFFSET = 100;
@@ -24,14 +24,15 @@ type NavItem =
   | { label: string; type: "external"; href: string };
 
 function useNavItems() {
+  const locale = useLocale();
   const t = useTranslations("Landing.Navbar");
   return useMemo<NavItem[]>(() => {
     const docsItem: NavItem | null = DOCS_URL
-      ? { label: t("docs"), type: "external", href: DOCS_URL }
+      ? { label: t("docs"), type: "external", href: `${DOCS_URL}/${locale.replace("-", "")}/docs` }
       : null;
 
     return [{ label: t("home"), type: "scroll", id: "hero" }, ...(docsItem ? [docsItem] : [])];
-  }, [t, DOCS_URL]);
+  }, [t, DOCS_URL, locale]);
 }
 
 function useSmoothScroll() {
