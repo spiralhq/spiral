@@ -8,10 +8,10 @@ export function baseOptions(_locale: string): BaseLayoutProps {
     nav: {
       title: () => (
         <div className="mr-auto flex items-center space-x-2">
-          <div className="size-8">
-            <Logo />
-          </div>
-          <span className="font-semibold text-lg">Spiral</span>
+          <Logo />
+          <span className="text-xl font-bold tracking-tight text-foreground font-display">
+            Spiral
+          </span>
         </div>
       ),
     },

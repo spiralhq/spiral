@@ -17,7 +17,8 @@
     "db:start": "docker compose up -d",
     "db:watch": "docker compose up",
     "db:stop": "docker compose stop",
-    "db:down": "docker compose down"
+    "db:down": "docker compose down",
+    "db:seed": "tsx --env-file=../../apps/server/.env src/seed.ts"
   },
   "dependencies": {
     "@spiral/env": "*",
@@ -30,6 +31,7 @@
     "@spiral/config": "*",
     "@types/pg": "^8.16.0",
     "drizzle-kit": "^0.31.8",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

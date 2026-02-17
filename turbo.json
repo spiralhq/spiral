@@ -3,15 +3,37 @@
   "ui": "tui",
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ],
+      "env": [
+        "CORS_ORIGIN",
+        "DATABASE_URL",
+        "JWT_SECRET",
+        "SOLANA_RPC_URL",
+        "ORGANIZATION_PROGRAM_ID",
+        "DEFAULT_ORG_PDA",
+        "ADMIN_PUBLIC_KEY",
+        "ADMIN_MEMBERSHIP_PDA"
+      ]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": [
+        "^lint"
+      ]
     },
     "check-types": {
-      "dependsOn": ["^check-types"]
+      "dependsOn": [
+        "^check-types"
+      ]
     },
     "dev": {
       "cache": false,
@@ -43,6 +65,9 @@
       "persistent": true
     },
     "db:down": {
+      "cache": false
+    },
+    "db:seed": {
       "cache": false
     }
   }

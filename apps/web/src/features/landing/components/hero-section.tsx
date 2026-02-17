@@ -4,9 +4,10 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export function HeroSection() {
-  const t = useTranslations("Landing.HeroSection");
+  const t = useTranslations();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -135,10 +136,10 @@ export function HeroSection() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              {t("title").split("\n")[0]}
+              {t("landing.hero-section.title").split("\n")[0]}
               <br />
               <span className="bg-linear-to-r from-primary via-primary to-accent-foreground bg-clip-text text-transparent antialiased">
-                {t("title").split("\n")[1]}
+                {t("landing.hero-section.title").split("\n")[1]}
               </span>
             </motion.h1>
           </motion.div>
@@ -149,7 +150,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            {t("subtitle")}
+            {t("landing.hero-section.subtitle")}
           </motion.p>
 
           <motion.div
@@ -158,8 +159,13 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <Button size="lg" className="group" disabled>
-              {t("ctaDisabled")}
+            <Button
+              size="lg"
+              className="group"
+              nativeButton={false}
+              render={<Link href="/login" />}
+            >
+              {t("landing.hero-section.primary-cta")}
             </Button>
           </motion.div>
 
@@ -169,7 +175,7 @@ export function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            {t("kicker")}
+            {t("landing.hero-section.kicker")}
           </motion.p>
         </div>
       </motion.div>

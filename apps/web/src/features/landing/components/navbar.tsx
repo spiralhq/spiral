@@ -11,9 +11,10 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { Logo } from "@/assets/logo";
-import { LocaleSelector } from "./locale-selector";
 import { useLocale, useTranslations } from "next-intl";
 import { env } from "@spiral/env/web";
+import { LocaleSelector } from "@/components/locale-selector";
+import Link from "next/link";
 
 const SCROLL_OFFSET = 100;
 const DOCS_URL = env.NEXT_PUBLIC_DOCS_URL;
@@ -25,14 +26,21 @@ type NavItem =
 
 function useNavItems() {
   const locale = useLocale();
-  const t = useTranslations("Landing.Navbar");
+  const t = useTranslations();
   return useMemo<NavItem[]>(() => {
     const docsItem: NavItem | null = DOCS_URL
-      ? { label: t("docs"), type: "external", href: `${DOCS_URL}/${locale.replace("-", "")}/docs` }
+      ? {
+          label: t("landing.navbar.docs"),
+          type: "external",
+          href: `${DOCS_URL}/${locale.replace("-", "")}/docs`,
+        }
       : null;
 
-    return [{ label: t("home"), type: "scroll", id: "hero" }, ...(docsItem ? [docsItem] : [])];
-  }, [t, DOCS_URL, locale]);
+    return [
+      { label: t("landing.navbar.home"), type: "scroll", id: "hero" },
+      ...(docsItem ? [docsItem] : []),
+    ];
+  }, [t, locale]);
 }
 
 function useSmoothScroll() {
@@ -96,7 +104,9 @@ function LogoSection() {
       <div className="h-8 w-8 shrink-0 text-primary">
         <Logo />
       </div>
-      <span className="hidden text-lg font-bold tracking-tight sm:inline-block">Spiral</span>
+      <span className="hidden text-xl font-bold tracking-tight text-foreground font-display sm:inline-block">
+        Spiral
+      </span>
     </motion.div>
   );
 }
@@ -112,14 +122,22 @@ function DesktopNav({ items, onScroll }: { items: NavItem[]; onScroll: (id: stri
 }
 
 function DesktopActions() {
+  const t = useTranslations();
+
   return (
     <div className="hidden items-center gap-2 md:flex">
       <div className="flex items-center gap-1">
         <ThemeSwitch />
         <LocaleSelector />
       </div>
-      <Separator orientation="vertical" />
+
+      <Separator orientation="vertical" className="mx-1" />
+
       <GitHubLink />
+
+      <Button className="group" nativeButton={false} render={<Link href="/login" />}>
+        {t("landing.hero-section.primary-cta")}
+      </Button>
     </div>
   );
 }
@@ -132,14 +150,18 @@ interface MobileMenuProps {
 }
 
 function MobileMenu({ items, isOpen, setIsOpen, onScroll }: MobileMenuProps) {
+  const t = useTranslations();
+
   return (
     <div className="flex items-center gap-2 md:hidden">
-      <ThemeSwitch />
+      <Button className="group" nativeButton={false} render={<Link href="/login" />}>
+        {t("landing.hero-section.primary-cta")}
+      </Button>
 
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger
           render={
-            <Button size="icon">
+            <Button size="icon" variant="secondary">
               <Menu className="h-6 w-6" />
               <span className="sr-only">Open menu</span>
             </Button>
@@ -152,7 +174,9 @@ function MobileMenu({ items, isOpen, setIsOpen, onScroll }: MobileMenuProps) {
               <span className="h-8 w-8 text-primary">
                 <Logo />
               </span>
-              <span className="font-bold">Spiral</span>
+              <span className="text-xl font-bold tracking-tight text-foreground font-display">
+                Spiral
+              </span>
             </SheetTitle>
           </SheetHeader>
 
@@ -169,8 +193,17 @@ function MobileMenu({ items, isOpen, setIsOpen, onScroll }: MobileMenuProps) {
             </div>
 
             <div className="flex flex-col gap-4 border-t pt-6">
+              <Button
+                className="w-full"
+                nativeButton={false}
+                render={<Link href="/login" />}
+                onClick={() => setIsOpen(false)}
+              >
+                {t("landing.hero-section.primary-cta")}
+              </Button>
+
               <GitHubLink isMobile />
-              <LocaleSelector isMobile />
+              <LocaleSelector withLabel />
             </div>
           </div>
         </SheetContent>
@@ -180,7 +213,7 @@ function MobileMenu({ items, isOpen, setIsOpen, onScroll }: MobileMenuProps) {
 }
 
 function GitHubLink({ isMobile = false }: { isMobile?: boolean }) {
-  const t = useTranslations("Landing.Navbar");
+  const t = useTranslations();
 
   if (isMobile) {
     return (
@@ -188,11 +221,11 @@ function GitHubLink({ isMobile = false }: { isMobile?: boolean }) {
         href={GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={t("githubStar")}
-        className={cn(buttonVariants({ variant: "default" }), "w-full justify-center gap-2")}
+        aria-label={t("landing.navbar.github-star")}
+        className={cn(buttonVariants({ variant: "secondary" }), "w-full justify-center gap-2")}
       >
         <HugeiconsIcon icon={Github01Icon} className="size-5" />
-        <span>{t("githubStar")}</span>
+        <span>{t("landing.navbar.github-star")}</span>
       </a>
     );
   }
@@ -202,8 +235,8 @@ function GitHubLink({ isMobile = false }: { isMobile?: boolean }) {
       href={GITHUB_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={t("githubStar")}
-      className={cn(buttonVariants({ size: "icon" }))}
+      aria-label={t("landing.navbar.github-star")}
+      className={cn(buttonVariants({ variant: "secondary", size: "icon" }))}
     >
       <HugeiconsIcon icon={Github01Icon} className="size-5" />
     </a>

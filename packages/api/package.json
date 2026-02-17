@@ -2,25 +2,30 @@
   "name": "@spiral/api",
   "type": "module",
   "exports": {
-    ".": {
-      "default": "./src/index.ts"
-    },
-    "./*": {
-      "default": "./src/*.ts"
-    }
+    ".": "./src/index.ts",
+    "./context": "./src/context.ts",
+    "./http": "./src/http/index.ts",
+    "./trpc": "./src/trpc/index.ts",
+    "./routers/*": "./src/routers/*.ts",
+    "./features/*": "./src/features/*/index.ts",
+    "./core/*": "./src/core/*/index.ts",
+    "./*": "./src/*.ts"
   },
   "scripts": {},
   "dependencies": {
-    "@spiral/auth": "*",
+    "@solana/web3.js": "^1.98.4",
     "@spiral/db": "*",
     "@spiral/env": "*",
     "@trpc/client": "^11.7.2",
     "@trpc/server": "^11.7.2",
+    "bs58": "^4.0.1",
     "dotenv": "^17.2.2",
+    "tweetnacl": "^1.0.3",
     "zod": "^4.1.13"
   },
   "devDependencies": {
     "@spiral/config": "*",
+    "@types/bs58": "^4.0.4",
     "hono": "^4.8.2",
     "typescript": "^5"
   }

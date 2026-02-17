@@ -1,26 +1,117 @@
 {
-  "Common": {
-    "ThemeSwitch": {
+  "errors": {
+    "auth": {
+      "required": "Autenticação necessária.",
+      "invalid-or-expired-challenge": "Desafio de autenticação inválido ou expirado.",
+      "invalid-signature": "Assinatura de carteira inválida.",
+      "no-org-for-user": "Você não é membro de nenhuma organização.",
+      "member-pda-missing": "Membro não encontrado on-chain. Contate um administrador."
+    },
+    "invite": {
+      "not-found": "Convite não encontrado.",
+      "already-accepted": "Convite já aceito."
+    },
+    "internal": "Ocorreu um erro inesperado.",
+    "http": {
+      "invalid-json": "Payload JSON inválido.",
+      "invalid-body": "Corpo da requisição inválido."
+    }
+  },
+  "common": {
+    "command-menu": {
+      "placeholder": "Digite um comando ou pesquise...",
+      "no-results": "Nenhum resultado encontrado.",
+      "locale": "Idioma",
+      "theme": "Tema"
+    },
+    "search": {
+      "placeholder": "Pesquisar..."
+    },
+    "theme-switch": {
       "sr-only": "Alternar tema",
       "light": "Claro",
       "dark": "Escuro",
       "system": "Sistema"
     },
-    "LocaleSelector": {
+    "locale-selector": {
       "sr-only": "Selecionar idioma"
     }
   },
-  "Landing": {
-    "Navbar": {
+  "sidebar": {
+    "general": {
+      "title": "Geral",
+      "dashboard": "Dashboard"
+    },
+    "nav-user": {
+      "active-role": "Papel ativo"
+    }
+  },
+  "wallet": {
+    "more-wallets-button": {
+      "more": "Mais opções",
+      "less": "Menos opções"
+    },
+    "no-wallets-found": {
+      "title": "Nenhuma carteira encontrada",
+      "description": "Você precisará de uma carteira na Solana para continuar. Por favor, instale uma carteira e atualize a página."
+    },
+    "wallet-list-item": {
+      "detected": "Detectada"
+    },
+    "wallet-modal": {
+      "title": "Conecte uma carteira na Solana para continuar"
+    },
+    "wallet-multi-button": {
+      "copy-address": "Copiar endereço",
+      "copied": "Copiado",
+      "change-wallet": "Trocar carteira",
+      "disconnect": "Desconectar",
+      "connecting": "Conectando...",
+      "connected": "Conectado",
+      "has-wallet": "Conectar",
+      "no-wallet": "Conectar Carteira",
+      "copy-success": "Endereço copiado para a área de transferência",
+      "disconnect-success": "Carteira desconectada"
+    }
+  },
+  "landing": {
+    "navbar": {
       "home": "Início",
       "docs": "Docs",
-      "githubStar": "Nos apoie no GitHub"
+      "github-star": "Nos apoie no GitHub"
     },
-    "HeroSection": {
+    "hero-section": {
       "title": "PRESERVE\nNOSSA MEMÓRIA",
       "subtitle": "Um protocolo descentralizado para registrar, governar e preservar o patrimônio audiovisual — para sempre, on-chain.",
-      "ctaDisabled": "Em breve",
+      "primary-cta": "Comece Agora",
       "kicker": "Contra a perda da memória digital"
+    }
+  },
+  "auth": {
+    "invite": {
+      "title": "Você foi convidado para entrar em uma organização",
+      "description": "Conecte sua carteira para aceitar o convite e entrar.",
+      "action": "Aceitar convite e entrar",
+      "success": "Convite aceito! Redirecionando...",
+      "error": "Falha ao aceitar o convite"
+    },
+    "sign-in": {
+      "title": "Entre na sua conta",
+      "description": "Conecte sua carteira para entrar.",
+      "wallet-options": "Phantom, Solflare, Coinbase & mais",
+      "divider": "Seguro & Descentralizado",
+      "action": "Entrar com carteira",
+      "success": "Entrada bem-sucedida! Redirecionando...",
+      "error": "Falha ao entrar",
+      "banner-quote": "A espiral é um círculo espiritualizado. Na forma espiral, o círculo, ao se desenrolar, deixa de ser um ciclo vicioso e se torna livre."
+    },
+    "sign-out": {
+      "title": "Sair da sua conta",
+      "description": "Tem certeza de que deseja sair?",
+      "cancel": "Cancelar",
+      "action": "Sair",
+      "success": "Saída bem-sucedida! Redirecionando...",
+      "error": "Falha ao sair"
     }
   }
 }

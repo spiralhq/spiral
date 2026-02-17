@@ -1,26 +1,116 @@
 {
-  "Common": {
-    "ThemeSwitch": {
+  "errors": {
+    "unknown": "An unknown error occurred.",
+    "auth": {
+      "required": "Authentication required.",
+      "invalid-or-expired-challenge": "Invalid or expired authentication challenge.",
+      "invalid-signature": "Invalid wallet signature.",
+      "no-org-for-user": "You are not a member of any organization.",
+      "member-pda-missing": "Membership not found on-chain. Contact an administrator."
+    },
+    "invite": {
+      "not-found": "Invite not found.",
+      "already-accepted": "Invite already accepted."
+    },
+    "internal": "An unexpected error occurred.",
+    "http": {
+      "invalid-json": "Invalid JSON payload.",
+      "invalid-body": "Invalid request body."
+    }
+  },
+  "common": {
+    "command-menu": {
+      "placeholder": "Type a command or search...",
+      "no-results": "No results found.",
+      "locale": "Language",
+      "theme": "Theme"
+    },
+    "search": {
+      "placeholder": "Search..."
+    },
+    "theme-switch": {
       "sr-only": "Switch theme",
       "light": "Light",
       "dark": "Dark",
       "system": "System"
     },
-    "LocaleSelector": {
+    "locale-selector": {
       "sr-only": "Select language"
     }
   },
-  "Landing": {
-    "Navbar": {
+  "sidebar": {
+    "general": {
+      "title": "General",
+      "dashboard": "Dashboard"
+    },
+    "nav-user": {
+      "active-role": "Active role"
+    }
+  },
+  "wallet": {
+    "more-wallets-button": {
+      "more": "More options",
+      "less": "Less options"
+    },
+    "no-wallets-found": {
+      "title": "No wallets found",
+      "description": "You'll need a wallet on Solana to continue. Please install a wallet and refresh the page."
+    },
+    "wallet-list-item": {
+      "detected": "Detected"
+    },
+    "wallet-modal": {
+      "title": "Connect a wallet on Solana to continue"
+    },
+    "wallet-multi-button": {
+      "copy-address": "Copy address",
+      "copied": "Copied",
+      "change-wallet": "Change wallet",
+      "disconnect": "Disconnect",
+      "connecting": "Connecting...",
+      "connected": "Connected",
+      "has-wallet": "Connect",
+      "no-wallet": "Connect Wallet",
+      "copy-success": "Address copied to clipboard",
+      "disconnect-success": "Wallet disconnected"
+    }
+  },
+  "landing": {
+    "navbar": {
       "home": "Home",
       "docs": "Docs",
-      "githubStar": "Star us on GitHub"
+      "github-star": "Star us on GitHub"
     },
-    "HeroSection": {
+    "hero-section": {
       "title": "PRESERVE\nHUMAN MEMORY",
       "subtitle": "A decentralized protocol for registering, governing, and preserving audiovisual works — forever, on-chain.",
-      "ctaDisabled": "Coming Soon",
+      "primary-cta": "Get Started",
       "kicker": "No more lost media"
+    }
+  },
+  "auth": {
+    "invite": {
+      "title": "You've been invited to join an organization",
+      "description": "Connect your wallet to accept the invitation and sign in.",
+      "action": "Accept invite and sign in",
+      "success": "Invite accepted! Redirecting..."
+    },
+    "sign-in": {
+      "title": "Sign in to your account",
+      "description": "Connect your wallet to sign in.",
+      "wallet-options": "Phantom, Solflare, Coinbase & more",
+      "divider": "Secure & Decentralized",
+      "action": "Sign in with wallet",
+      "success": "Sign in successful! Redirecting...",
+      "banner-quote": "The spiral is a spiritualized circle. In the spiral form, the circle, uncoiled, has ceased to be vicious; it has been set free."
+    },
+    "sign-out": {
+      "title": "Sign out of your account",
+      "description": "Are you sure you want to sign out?",
+      "cancel": "Cancel",
+      "action": "Sign out",
+      "success": "Sign out successful! Redirecting...",
+      "error": "Failed to sign out"
     }
   }
 }

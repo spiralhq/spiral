@@ -21,6 +21,7 @@
     "db:watch": "turbo -F @spiral/db db:watch",
     "db:stop": "turbo -F @spiral/db db:stop",
     "db:down": "turbo -F @spiral/db db:down",
+    "db:seed": "turbo -F @spiral/db db:seed",
     "check": "oxlint && oxfmt --write"
   },
   "dependencies": {

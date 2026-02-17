@@ -1,13 +1,14 @@
-import { trpcServer } from "@hono/trpc-server";
-import { createContext } from "@spiral/api/context";
-import { appRouter } from "@spiral/api/routers/index";
-import { auth } from "@spiral/auth";
 import { env } from "@spiral/env/server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
+import { trpcServer } from "@hono/trpc-server";
+import { createContext } from "@spiral/api/core/context";
+import { appRouter } from "@spiral/api/routers/app-router";
+import { apiHttp } from "@spiral/api/http";
+import { serve } from "@hono/node-server";
 
-const app = new Hono();
+export const app = new Hono();
 
 app.use(logger());
 app.use(
@@ -20,23 +21,15 @@ app.use(
   }),
 );
 
-app.on(["POST", "GET"], "/api/auth/*", (c) => auth.handler(c.req.raw));
-
+app.get("/", (c) => c.text("OK"));
 app.use(
   "/trpc/*",
   trpcServer({
     router: appRouter,
-    createContext: (_opts, context) => {
-      return createContext({ context });
-    },
+    createContext: (_opts, context) => createContext({ context }),
   }),
 );
-
-app.get("/", (c) => {
-  return c.text("OK");
-});
-
-import { serve } from "@hono/node-server";
+app.route("/api", apiHttp);
 
 serve(
   {
@@ -47,3 +40,5 @@ serve(
     console.log(`Server is running on http://localhost:${info.port}`);
   },
 );
+
+export default app;
