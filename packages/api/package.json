@@ -11,7 +11,10 @@
     "./core/*": "./src/core/*/index.ts",
     "./*": "./src/*.ts"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest --watch"
+  },
   "dependencies": {
     "@solana/web3.js": "^1.98.4",
     "@spiral/db": "*",
@@ -27,6 +30,7 @@
     "@spiral/config": "*",
     "@types/bs58": "^4.0.4",
     "hono": "^4.8.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.0.18"
   }
 }

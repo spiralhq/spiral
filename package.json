@@ -22,7 +22,9 @@
     "db:stop": "turbo -F @spiral/db db:stop",
     "db:down": "turbo -F @spiral/db db:down",
     "db:seed": "turbo -F @spiral/db db:seed",
-    "check": "oxlint && oxfmt --write"
+    "check": "oxlint && oxfmt --write",
+    "test": "turbo test",
+    "test:watch": "turbo test:watch"
   },
   "dependencies": {
     "@spiral/env": "*",
