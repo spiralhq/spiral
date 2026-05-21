@@ -30,7 +30,10 @@ export function WalletMultiButton({
   const base58 = useMemo(() => publicKey?.toBase58(), [publicKey]);
   const content = useMemo(() => {
     if (connecting) return t("wallet.wallet-multi-button.connecting");
-    if (wallet) return base58 ? `${base58.slice(0, 4)}...${base58.slice(-4)}` : t("connected");
+    if (wallet)
+      return base58
+        ? `${base58.slice(0, 4)}...${base58.slice(-4)}`
+        : t("wallet.wallet-multi-button.connected");
     return t("wallet.wallet-multi-button.no-wallet");
   }, [connecting, wallet, base58, locale]);
 

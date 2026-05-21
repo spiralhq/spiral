@@ -97,9 +97,7 @@ describe("invitesRouter (tRPC)", () => {
 
       await caller.create({ email: "test@example.com" });
 
-      expect(mockedCreateInvite).toHaveBeenCalledWith(
-        expect.objectContaining({ role: 2 }),
-      );
+      expect(mockedCreateInvite).toHaveBeenCalledWith(expect.objectContaining({ role: 2 }));
     });
   });
 });

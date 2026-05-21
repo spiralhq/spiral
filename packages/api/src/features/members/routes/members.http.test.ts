@@ -119,9 +119,7 @@ describe("membersHttp routes", () => {
         organizationId: "org-1",
         role: 1,
       });
-      mockedListMembers.mockResolvedValue(
-        createMockResult([], { page: 2, pageSize: 10 }),
-      );
+      mockedListMembers.mockResolvedValue(createMockResult([], { page: 2, pageSize: 10 }));
 
       await membersHttp.request("/?page=2&pageSize=10");
 
@@ -140,9 +138,7 @@ describe("membersHttp routes", () => {
         organizationId: "org-1",
         role: 1,
       });
-      mockedListMembers.mockResolvedValue(
-        createMockResult([], { sortBy: "name", sortDir: "asc" }),
-      );
+      mockedListMembers.mockResolvedValue(createMockResult([], { sortBy: "name", sortDir: "asc" }));
 
       await membersHttp.request("/?sortBy=name&sortDir=asc");
 
@@ -161,9 +157,7 @@ describe("membersHttp routes", () => {
         organizationId: "org-1",
         role: 1,
       });
-      mockedListMembers.mockResolvedValue(
-        createMockResult([], { q: "alice" }),
-      );
+      mockedListMembers.mockResolvedValue(createMockResult([], { q: "alice" }));
 
       await membersHttp.request("/?q=alice");
 
@@ -181,9 +175,7 @@ describe("membersHttp routes", () => {
         organizationId: "org-1",
         role: 1,
       });
-      mockedListMembers.mockResolvedValue(
-        createMockResult([], { filters: { role: 1 } }),
-      );
+      mockedListMembers.mockResolvedValue(createMockResult([], { filters: { role: 1 } }));
 
       await membersHttp.request("/?filters=" + encodeURIComponent('{"role":1}'));
 

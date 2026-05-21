@@ -94,9 +94,7 @@ describe("membersRouter (tRPC)", () => {
     });
 
     it("passes pagination params to use case", async () => {
-      mockedListMembers.mockResolvedValue(
-        createMockResult([], { page: 2, pageSize: 10 }),
-      );
+      mockedListMembers.mockResolvedValue(createMockResult([], { page: 2, pageSize: 10 }));
 
       const caller = membersRouter.createCaller({
         session: { publicKey: "wallet", organizationId: "org-1", role: 1 },
@@ -114,9 +112,7 @@ describe("membersRouter (tRPC)", () => {
     });
 
     it("passes sort params to use case", async () => {
-      mockedListMembers.mockResolvedValue(
-        createMockResult([], { sortBy: "name", sortDir: "asc" }),
-      );
+      mockedListMembers.mockResolvedValue(createMockResult([], { sortBy: "name", sortDir: "asc" }));
 
       const caller = membersRouter.createCaller({
         session: { publicKey: "wallet", organizationId: "org-1", role: 1 },

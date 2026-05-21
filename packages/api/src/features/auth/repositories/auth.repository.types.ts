@@ -54,7 +54,13 @@ export type MembershipProjection = {
 export type MeProjection = {
   publicKey: string;
   name: string | null;
-  organization: unknown | null;
+  organization: {
+    id: string;
+    pda: string;
+    name: string;
+    slug: string;
+    createdAt: Date;
+  } | null;
   role: number | null;
 };
 

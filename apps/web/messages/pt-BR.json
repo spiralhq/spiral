@@ -113,5 +113,11 @@
       "success": "Saída bem-sucedida! Redirecionando...",
       "error": "Falha ao sair"
     }
+  },
+  "orgs": {
+    "organization-switcher": {
+      "title": "Organizações",
+      "create-new": "Criar nova organização"
+    }
   }
 }

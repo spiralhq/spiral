@@ -189,7 +189,7 @@ describe("normalizeQueryInput", () => {
     const allowed = ["name", "role"] as const;
     const result = normalizeQueryInput(
       { sortBy: "invalid" },
-      { allowedSortBy: allowed, defaultSortBy: "name" }
+      { allowedSortBy: allowed, defaultSortBy: "name" },
     );
     expect(result.sortBy).toBe("name");
   });

@@ -1,18 +1,9 @@
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar";
 import { getSidebarData } from "./data/sidebar-data";
 import { NavGroup } from "./nav-group";
 import { NavUser } from "./nav-user";
-import { Logo } from "@/assets/logo";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { OrganizationSwitcher } from "@/features/orgs/components/organization-switcher";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const t = useTranslations();
@@ -21,19 +12,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              render={<Link href="/dashboard" />}
-              className="[&_svg]:size-7 group-data-[collapsible=icon]:p-0.5!"
-            >
-              <Logo />
-              <span className="text-xl font-bold tracking-tight text-foreground font-display">
-                Spiral
-              </span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <OrganizationSwitcher />
       </SidebarHeader>
       <SidebarContent>
         {sidebarData.navGroups.map((props) => (

@@ -1,8 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  ListMineOutputDto,
-  ListMineOrganizationItemDto,
-} from "./list-mine.dto";
+import { ListMineOutputDto, ListMineOrganizationItemDto } from "./list-mine.dto";
 import { SwitchOrgInputDto, SwitchOrgOutputDto } from "./switch.dto";
 
 describe("ListMineOrganizationItemDto", () => {

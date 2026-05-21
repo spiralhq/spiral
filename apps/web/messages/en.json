@@ -112,5 +112,11 @@
       "success": "Sign out successful! Redirecting...",
       "error": "Failed to sign out"
     }
+  },
+  "orgs": {
+    "organization-switcher": {
+      "title": "Organizations",
+      "create-new": "Create new organization"
+    }
   }
 }
